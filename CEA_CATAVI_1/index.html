@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CEA - Catavi – Llallagua</title>
+  <meta name="description" content="Sitio web oficial del Centro de Educacion Alternativa Catavi – Llallagua, Bolivia. Información institucional, oferta académica, noticias, eventos y contacto." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23007934'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23FCD116'/%3E%3Cpath d='M16 32 L32 18 L48 32 L32 46 Z' fill='%23D52B1E'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+   
+
+    :root{
+      --green:#4091aa; 
+      --ink:#0f172a; 
+      --muted:#475569; 
+      --bg:#f8fafc; 
+      --card:#ffffff;
+      --ring: rgba(0,0,0,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{  margin: 0;
+  padding: 0;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+  color: var(--ink);
+
+  /* Fondo con imagen */
+  background-image: url("imagenes/cea.jfif"); /* Ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+    }
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
+
+    /* Navbar */
+   header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.2); /* color blanco transparente */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* borde sutil */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* sombra ligera */
+  backdrop-filter: blur(5px); /* opcional, da efecto cristal */
+}
+
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0}
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .brand .logo{width:40px;height:40px;border-radius:10px;box-shadow:0 0 0 3px var(--bg) inset}
+    .brand h1{font-size:1.05rem;line-height:1.1;margin:0}
+    .brand small{display:block;color:var(--muted)}
+    .menu{display:flex;gap:1rem}
+    .menu a{padding:.5rem .7rem;border-radius:.7rem}
+    .menu a:hover{background:#f1f5f9}
+    .menu-toggle{display:none;border:1px solid #cbd5e1;padding:.4rem .6rem;border-radius:.6rem;background:#fff}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate;overflow:hidden}
+    .hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: var(--green);
+  opacity:.12;
+  z-index:-1;
+}
+
+
+
+
+
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:3rem 0}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .6rem;border-radius:999px;background:#fff;border:1px solid #e2e8f0;font-size:.85rem}
+    .badge-dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--green)}
+    .hero h2,
+.hero p {
+    color: #fff;  
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+}
+    .cta{display:flex;gap:.8rem;margin-top:1rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-radius:.8rem;border:1px solid transparent;font-weight:600;cursor:pointer}
+   .btn.primary {
+  background: #1e40af;  /* 🔵 azul */
+  color: #fff;          /* letras blancas */
+  padding: 0.8rem 1.5rem;
+  border-radius: .5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn.primary:hover {
+  background: #2563eb; /* azul un poco más claro al pasar el mouse */
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #2505af;       /* 🔵 azul en las letras */
+  border: 2px solid #1e40af; /* borde azul */
+  padding: 0.8rem 1.5rem;
+  border-radius: .5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn.ghost:hover {
+  background: rgba(30,64,175,0.1); /* azul transparente al pasar el mouse */
+}
+
+    .statbar{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+    .stat{padding:1rem;border-radius:.8rem;background:#fff;border:1px solid #e2e8f0;text-align:center}
+    .stat h3{margin:0;font-size:1.4rem}
+    .stat p{margin:.25rem 0 0;color:var(--muted)}
+
+    
+    .chip.primaria {
+  background-color: rgba(245, 44, 9, 0.973);
+  color: #fff;
+}
+
+.chip.secundaria {
+  background-color: rgba(245, 44, 9, 0.973); /* azul suave */
+  color: #fff;
+}
+
+.chip.tecnica {
+  background-color: rgba(245, 44, 9, 0.973); /* amarillo suave */
+  color: #fff;
+}
+.underline-part {
+  border-bottom: 2px solid rgba(245, 44, 9, 0.973); 
+  display: inline-block;         /* necesario para que funcione solo en el span */
+}
+
+
+    
+    #cont3d {
+  width: 100%;
+  height: 400px;
+  background-color: #eef2ff; /* azul clarito para que se vea el cuarto */
+}
+
+#institucion {
+  min-height: 70vh; /* ocupa 70% de la altura de la pantalla */
+  padding: 3rem;
+}
+#institucion .container {
+  display: flex;
+  flex-direction: column; /* apila verticalmente */
+  justify-content: center; /* centra verticalmente */
+  align-items: center;     /* centra horizontalmente */
+  text-align: center;
+  min-height: 100vh;       /* ocupa toda la pantalla */
+  padding: 2rem;
+}
+
+#institucion .section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #fff; /* puedes cambiar el color */
+}
+
+#institucion .kicker {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  color: #fff; /* igual color del texto */
+}
+
+/* Mantener las cards centradas debajo */
+#institucion .grid.cols-3 {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* para pantallas pequeñas se acomoden */
+}
+
+#institucion .card {
+  background: rgba(55, 56, 59, 0.6); /* azul transparente */
+  color: #f9f9f9; /* letras blancas */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  flex: 1 1 250px; /* tamaño mínimo y flexible */
+  text-align: center;
+}
+.card i {
+  color: #fff; /* blanco */
+  margin-bottom: 1rem;
+}
+
+
+
+      #institucion .section-title,
+    #institucion .kicker {
+      color: white;}
+
+      #oferta .section-title {
+  text-align: center;   /* centra el texto horizontalmente */
+  color: #ffffff;       /* color blanco */
+  font-size: 2.5rem;    /* tamaño del título */
+  margin-bottom: 0.5rem;
+}
+
+#oferta .kicker {
+  text-align: center;   /* centra el subtítulo */
+  color: #ffffff;       /* color blanco */
+  font-size: 1.2rem;    /* tamaño del subtítulo */
+  margin-bottom: 2rem;
+}
+
+
+   #noticias .section-title,
+    #noticias .kicker {
+      color: white;}
+
+            #noticias .section-title {
+  text-align: center;   /* centra el texto horizontalmente */
+  color: #ffffff;       /* color blanco */
+  font-size: 2.5rem;    /* tamaño del título */
+  margin-bottom: 0.5rem;
+}
+
+#noticias .kicker {
+  text-align: center;   /* centra el subtítulo */
+  color: #ffffff;       /* color blanco */
+  font-size: 1.2rem;    /* tamaño del subtítulo */
+  margin-bottom: 2rem;
+}
+
+
+
+
+#eventos {
+  min-height: 65vh; /* ocupa 70% de la altura de la pantalla */
+  padding: 2rem;
+}
+#eventos .container {
+  display: flex;
+  flex-direction: column; /* apila verticalmente */
+  justify-content: center; /* centra verticalmente */
+  align-items: center;     /* centra horizontalmente */
+  text-align: center;
+  min-height: 70vh;       /* ocupa toda la pantalla */
+  padding: 2rem;
+}
+
+
+
+#eventos .section-title,
+#eventos .kicker {
+  text-align: center; /* centra horizontalmente */
+}
+
+
+            #eventos .section-title {
+  text-align: center;   /* centra el texto horizontalmente */
+  color: #ffffff;       /* color blanco */
+  font-size: 2.5rem;    /* tamaño del título */
+  margin-bottom: 0.5rem;
+}
+
+#eventos .kicker {
+  text-align: center;   /* centra el subtítulo */
+  color: #ffffff;       /* color blanco */
+  font-size: 1.2rem;    /* tamaño del subtítulo */
+  margin-bottom: 2rem;
+}
+
+        
+#galeria .section-title,
+    #galeria .kicker {
+      color: white;}
+
+                  #galeria .section-title {
+  text-align: center;   /* centra el texto horizontalmente */
+  color: #ffffff;       /* color blanco */
+  font-size: 2.5rem;    /* tamaño del título */
+  margin-bottom: 0.5rem;
+}
+
+#galeria .kicker {
+  text-align: center;   /* centra el subtítulo */
+  color: #ffffff;       /* color blanco */
+  font-size: 1.2rem;    /* tamaño del subtítulo */
+  margin-bottom: 2rem;
+}
+
+
+         #estructura3d .section-title,
+    #estructura3d .kicker {
+      color: white;}
+                  #estructura3d .section-title {
+  text-align: center;   /* centra el texto horizontalmente */
+  color: #ffffff;       /* color blanco */
+  font-size: 2.5rem;    /* tamaño del título */
+  margin-bottom: 0.5rem;
+}
+
+#estructura3d .kicker {
+  text-align: center;   /* centra el subtítulo */
+  color: #ffffff;       /* color blanco */
+  font-size: 1.2rem;    /* tamaño del subtítulo */
+  margin-bottom: 2rem;
+}
+
+    /* Sections */
+    section{padding:3rem 0}
+    .section-title{font-size:1.6rem;margin:0 0 .8rem}
+    .kicker{color:var(--muted);margin:0 0 1.2rem}
+
+    /* Cards grid */
+    .grid{display:grid;gap:1rem}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+      .statbar{grid-template-columns:1fr 1fr}
+      .cols-3{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .menu{display:none}
+      .menu.open{display:flex;flex-direction:column;gap:.2rem;padding:.5rem 0}
+      .menu a{padding:.7rem}
+      .menu-toggle{display:inline-flex}
+      .statbar{grid-template-columns:1fr}
+      .cols-3,.cols-2{grid-template-columns:1fr}
+    }
+
+    .card{border:1px solid #e2e8f0;background:var(--card);border-radius:1rem;overflow:hidden}
+    .card .pad{padding:1rem}
+    .chip{display:inline-block;padding:.25rem .5rem;border-radius:999px;font-size:.8rem;background:#f1f5f9;border:1px solid #e2e8f0;color:var(--ink)}
+
+    /* Table */
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:.7rem;border-bottom:1px solid #e2e8f0;text-align:left}
+    thead th{background:#f8fafc}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+    @media (max-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    .gallery img{aspect-ratio:4/3;object-fit:cover;border-radius:.6rem;border:1px solid #e2e8f0}
+
+    /* Contact */
+    form{display:grid;gap:.8rem}
+    input,select,textarea{width:100%;padding:.7rem;border:1px solid #cbd5e1;border-radius:.6rem;background:#fff}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--yellow);border-color:var(--ink)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    @media (max-width:640px){.row{grid-template-columns:1fr}}
+
+    /* Footer */
+    footer {
+  background: #28515e; /* color sólido */
+  color: white;         /* mantiene el texto visible */
+  padding: 20px;        /* opcional, para separar el contenido */
+}
+
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
+    .footer-grid a{color:#c7d2fe}
+    @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.footer-grid{grid-template-columns:1fr}}
+
+    /* Utility */
+    .flag{
+  height:10px;
+  border-radius:999px;
+  background: var(--green);
+}
+
+    .shadow{box-shadow:0 8px 30px rgba(0,0,0,.06)}
+    .hidden{display:none}
+
+    #noticias .card img {
+  width: 100%;       /* ocupa todo el ancho del card */
+  height: 200px;     /* altura fija */
+  object-fit: cover; /* recorta la imagen manteniendo proporción */
+  border-radius: 0.6rem;
+}
+
+.gallery img {
+  aspect-ratio: 4/3;   /* proporción de ancho / alto */
+  object-fit: cover;   /* recorta y ajusta la imagen */
+  width: 100%;         /* ocupa todo el ancho de su contenedor */
+  border-radius: .6rem;
+  border: 1px solid #e2e8f0;
+}
+
+
+
+/* Fondo del modal */
+.modal-bg {
+  display: none; 
+  position: fixed; 
+  inset: 0; 
+  background: rgba(0,0,0,0.6); 
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1000;
+}
+
+/* Contenido del modal */
+.modal-contenido {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: .6rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: left;
+  position: relative;
+}
+
+/* Botón cerrar */
+.modal-contenido .cerrar {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
+/* Cambiar color de las letras del brand y menú a blanco */
+.brand h1,
+.brand small {
+  color: #fff;
+}
+
+.menu a {
+  color: #fff;
+}
+
+.menu a:hover {
+  color: #fff;
+}
+
+
+/* Hover del menú */
+.menu a:hover {
+  background: #1e40af; /* azul */
+  color: #fff;          /* letras blancas */
+}
+
+/* Enlace activo */
+.menu a.active {
+  background: #1e3a8a; /* azul más oscuro para diferenciar */
+  color: #fff;
+}
+
+
+</style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+   <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Inicio">
+        <img class="logo" alt="Escudo escolar" src="imagenes/escudo.png"/>
+        <div>
+          <h1>CEA Catavi <small>Llallagua – Potosí</small></h1>
+        </div>
+      </a>
+      <nav>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu">Menú ▾</button>
+        <div class="menu" id="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#institucion">Institución</a>
+          <a href="#oferta">Oferta</a>
+          <a href="#noticias">Noticias</a>
+          <a href="#eventos">Eventos</a>
+          <a href="#galeria">Galería</a>
+          <a href="#estructura3d">Estructura 3D</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero -->
+
+<section id="inicio" class="hero">
+
+
+
+    <!-- Texto sobre las imágenes -->
+    <div class="slide-text">
+      <h1 id="slide-title">Centro de Educación Alternativa "Catavi"</h1>
+      <h2 id="slide-subtitle">Formando estudiantes integrales</h2>
+      <p id="slide-p">Desde Llallagua, promovemos valores, ciencia, tecnología y cultura. Somos parte activa de nuestra comunidad y del calendario cívico nacional (6 de Agosto y más).</p>
+      <div class="cta">
+        <a class="btn primary" href="#admision">Postula 2025</a>
+        <a class="btn ghost" href="#institucion">Conócenos</a>
+      </div>
+     <div class="statbar">
+  <div class="stat">
+    <i class="fas fa-user-graduate fa-2x"></i>
+    <h3>200+</h3>
+    <p>Estudiantes</p>
+  </div>
+  <div class="stat">
+    <i class="fas fa-chalkboard-teacher fa-2x"></i>
+    <h3>30</h3>
+    <p>Docentes</p>
+  </div>
+  <div class="stat">
+    <i class="fas fa-book-open fa-2x"></i>
+    <h3>3</h3>
+    <p>Niveles: Primaria, Secundaria, Formación Técnica</p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  height: 100vh; /* 🔥 ocupa toda la pantalla */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide-text {
+  position: absolute;
+  bottom: 150px;         /* más arriba o abajo según necesites */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  padding: 0;           /* quita el espacio del cuadro */
+  border-radius: 0;
+  background: none;     /* 🔥 elimina el fondo */
+  max-width: 90%;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* hace que las letras se lean mejor sobre la imagen */
+}
+
+
+.slide-text h1 {
+  font-size: 3vw;
+  margin-bottom: 0.5rem;
+}
+
+.slide-text h2 {
+  font-size: 2vw;
+  margin-bottom: 1rem;
+}
+
+.slide-text p {
+  font-size: 1.2vw;
+}
+
+
+
+.hero, 
+.slider, 
+.slide {
+  width: 100%;
+  height: 100vh; /* toda la altura visible de la pantalla */
+}
+
+.slide {
+  background-size: cover;       /* cubrir toda el área */
+  background-position: center;  /* centrar imagen */
+  background-repeat: no-repeat; /* evitar repeticiones */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;                   /* oculto por defecto */
+  transition: opacity 1s ease;  /* efecto suave */
+}
+
+.slide.active {
+  opacity: 1; /* solo el activo se ve */
+}
+
+
+
+
+.cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.statbar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* 🔥 permite que se acomoden mejor en pantallas pequeñas */
+}
+
+.stat {
+  width: 180px;                /* 🔥 mismo ancho */
+  height: 150px;               /* 🔥 misma altura */
+  background: rgba(30, 64, 175, 0.6); /* azul transparente */
+  padding: 1rem;
+  border-radius: .8rem;
+  color: #ffffff;              /* letras más blancas */
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* centra verticalmente */
+  align-items: center;         /* centra horizontalmente */
+}
+
+.stat i {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+  color: #ffffff;              /* íconos bien blancos */
+}
+
+.stat h3 {
+  margin: 0.3rem 0;
+  font-size: 1.5rem;
+  color: #ffffff;              /* texto más blanco */
+}
+
+.stat p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;              /* texto más blanco */
+}
+
+
+</style>
+
+<script>
+// Cambio automático de slides (solo imágenes)
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}, 5000);
+</script>
+
+
+
+
+  <!-- Institución -->
+  <section id="institucion">
+    <div class="container">
+      
+      <h3 class="section-title">Nuestra institución</h3>
+      <p class="kicker">Comprometidos con una educación inclusiva, intercultural y comunitaria.</p>
+      <div class="grid cols-3">
+   <section id="institucion">
+
+    
+    <div class="grid cols-3">
+      
+     <article class="card" style="width: 100%;">
+  <div class="pad" style="width: 100%;">
+    <h1 style="color:#d8e783; font-size:2rem; margin-bottom: 1rem;">Misión</h1>
+      <p style="text-align: justify; width: 100%; margin: 0 0 1rem 0;">
+      Brindar una formación humanística y técnico-tecnológica que desarrolle competencias para la vida, con identidad cultural y respeto.
+    </p>
+    <i class="fa-solid fa-bullseye fa-3x" style="color:#2baeb8;"></i>
+  </div>
+</article>
+
+      
+      <article class="card" style="width: 100%;">
+  <div class="pad" style="width: 100%;">
+    <h1 style="color:#FFC1CC; font-size:2rem; margin-bottom: 1rem;">Visión</h1>
+    <p style="text-align: justify; width: 100%; margin: 0 0 1rem 0;">
+      Ser una institución referente en Potosí por su excelencia académica, innovación y participación activa en la comunidad.
+    </p>
+    <i class="fa-solid fa-eye fa-3x" style="color:#3c22b1;"></i>
+  </div>
+</article>
+
+<article class="card" style="width: 100%;">
+  <div class="pad" style="width: 100%;">
+    <h1 style="color:rgb(255, 184, 124); font-size:2rem; margin-bottom: 1rem;">Valores</h1>
+    <p style="text-align: justify; width: 100%; margin: 0 0 1rem 0;">
+      Respeto, solidaridad, responsabilidad, honestidad, trabajo colaborativo y amor por Bolivia.
+    </p>
+    <i class="fa-solid fa-heart fa-3x" style="color:#ce1313;"></i>
+  </div>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Oferta Académica -->
+<section id="oferta" style="background: rgba(211, 52, 24, 0.6);">
+    <div class="container">
+      <h3 class="section-title">Oferta académica</h3>
+      <p class="kicker">Niveles y áreas de aprendizaje</p>
+      <div class="grid cols-3">
+        <article class="card"><div class="pad">
+          <span class="chip primaria">Primaria</span>
+         <h2><span class="underline-part">Educ</span>ación Primaria</h2>
+
+
+          <p>Comunicación, Matemática, Ciencias naturales y sociales, Expresiones Artísticas, Educación Física.</p>
+        </div></article>
+        <article class="card"><div class="pad">
+<span class="chip secundaria">Secundaria</span>
+          <h2><span class="underline-part">Educ</span>ación Secundaria</h2>
+
+          <p>Educacion secundaria, Psicologia, Biologia, Geografia, Estudios academicos de acuerdo al sistema educativo.</p>
+        </div></article>
+        <article class="card"><div class="pad">
+<span class="chip tecnica">Tecnica</span>
+
+          <h2><span class="underline-part">Form</span>ación Tecnica</h2>
+
+          <p>Humanístico y Técnico Humanístico: Electricidad, Gastronomia, y proyectos productivos comunitarios.</p>
+        </div></article>
+      </div>
+
+      <div class="card" style="margin-top:1rem">
+        <div class="pad">
+          <h2 id="admision">Admisión 2025</h2>
+          <p>Registra tu interés y te contactaremos. <strong>Vacantes limitadas</strong>.</p>
+          <form id="formAdmision">
+            <div class="row">
+              <div>
+                <label for="nombres">Nombres y apellidos</label>
+                <input id="nombres" name="nombres" required placeholder="Ej.: Ana Pérez" />
+              </div>
+              <div>
+                <label for="nivel">Nivel</label>
+                <select id="nivel" name="nivel" required>
+                  <option value="">Selecciona…</option>
+                  <option>Primaria</option>
+                  <option>Secundaria</option>
+                  <option>Formación Técnica</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="telefono">Teléfono/WhatsApp</label>
+                <input id="telefono" name="telefono" type="tel" placeholder="Ej.: 7xx-xx-xx" />
+              </div>
+              <div>
+                <label for="correo">Correo</label>
+                <input id="correo" name="correo" type="email" placeholder="tucorreo@ejemplo.com" />
+              </div>
+            </div>
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos sobre el postulante"></textarea>
+            <button class="btn primary" type="submit">Guardar interés</button>
+            <button class="btn ghost" type="button" id="verRegistros" aria-label="Ver registros de admisión">Ver registros</button>
+            <small id="msgForm" style="display:block;color:var(--muted)"></small>
+          </form>
+          <div id="tablaRegistros" class="card" style="margin-top:1rem;display:none">
+            <div class="pad">
+              <h5>Registros guardados en este navegador</h5>
+              <div class="tableWrap" style="overflow:auto">
+                <table id="tabla"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+
+  <!-- noticias -->
+<section id="noticias">
+  <div class="container">
+    <h3 class="section-title">Noticias</h3>
+    <p class="kicker">Actualidad de nuestra comunidad educativa</p>
+    <div class="grid cols-3">
+
+      <article class="card shadow">
+        <img alt="Feria científica" src="imagenes/feria.jfif">
+        <div class="pad">
+          <h4>Feria tecnica 2025</h4>
+          <p>Estudiantes de formacion tecnica presentan proyectos de robótica educativa y energías alternativas.</p>
+          <a href="#" class="leerMas" data-texto="Aquí va la noticia completa de la Feria Científica 2025. Los estudiantes mostraron robots que aprovechan energía solar y participaron en concursos de innovación.">Leer más</a>
+        </div>
+      </article>
+
+      <article class="card shadow">
+        <img alt="Desfile cívico" src="imagenes/desfile.jpg">
+        <div class="pad">
+          <h4>Desfile 6 de Agosto</h4>
+          <p>Participamos del homenaje a la independencia con bandas estudiantiles y estandartes.</p>
+          <a href="#" class="leerMas" data-texto="En el Desfile 6 de Agosto, nuestros estudiantes participaron activamente con bandas escolares, estandartes y trajes cívicos. Fue un evento que reforzó el sentimiento patriótico y la identidad cultural de la comunidad educativa.">Leer más</a>
+        </div>
+      </article>
+
+      <article class="card shadow">
+        <img alt="Huerto escolar" src="imagenes/cea.jfif">
+        <div class="pad">
+          <h4>Aniversario ¡53 años!</h4>
+          <p></p>
+          <a href="#" class="leerMas" data-texto="">Leer más</a>
+        </div>
+      </article>
+
+      <!-- Modal único para todas las noticias -->
+      <div class="modal-bg" id="modal">
+        <div class="modal-contenido">
+          <span class="cerrar" id="cerrarModal">&times;</span>
+          <p id="modalTexto"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- eventos -->
+  
+    <section id="eventos" style="background: rgba(51, 129, 165, 0.6);">
+    <div class="container">
+      <h3 class="section-title">Próximos eventos</h3>
+      <p class="kicker">Agenda institucional</p>
+      <div class="card"><div class="pad">
+        <table aria-label="Calendario de eventos">
+          <thead><tr><th>Fecha</th><th>Evento</th><th>Lugar</th><th>Estado</th></tr></thead>
+          <tbody id="listaEventos">
+            <tr><td>06/08/2025</td><td>Desfile Cívico – Independencia</td><td>Plaza de Armas</td><td><span class="chip">Confirmado</span></td></tr>
+            <tr><td>21/09/2025</td><td>Ferias</td><td>Patio central</td><td><span class="chip">En preparación</span></td></tr>
+            <tr><td>10/11/2025</td><td>Exposición de Proyectos</td><td>Laboratorios</td><td><span class="chip">Próximo</span></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- galería -->
+  <section id="galeria">
+    <div class="container">
+      <h3 class="section-title">Galería</h3>
+      <p class="kicker">Momentos que nos inspiran</p>
+      <div class="gallery">
+  <img alt="Laboratorio de informática" src="imagenes/aulas.jpeg"/>
+  <img alt="Acto cívico" src="imagenes/civico.jfif"/>
+  <img alt="Deportes" src="imagenes/deportes.jfif"/>
+  <img alt="Robótica" src="imagenes/feriap.jfif"/>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+   <!-- modelo 3D -->
+<section id="estructura3d">
+  <div class="container">
+    <h3 class="section-title">Estructura 3D</h3>
+    <p class="kicker">Visualiza el modelo 3D interactivo de nuestro Centro de educación alternativa "Catavi"</p>
+    <div id="cont3d" style="width:100%;height:400px;">
+      <!-- modelo 3D -->
+    </div>
+  </div>
+</section>
+
+
+  <!-- contacto -->
+  <section id="contacto" style="background:#fff">
+    <div class="container">
+      <h3 class="section-title">Contacto</h3>
+      <p class="kicker">Estamos en Llallagua, Potosí – Bolivia</p>
+      <div class="grid cols-2">
+        <div class="card"><div class="pad">
+          <h4>Escríbenos</h4>
+          <p>Atendemos de lunes a viernes, 19:00–21:00.</p>
+          <ul>
+            <li><strong>Dirección:</strong> Zona Central de Siglo XX, cercanías Av. 16 de Julio, Llallagua</li>
+            <li><strong>Teléfono:</strong> +591 74-14-18-88</li>
+            <li><strong>Email:</strong> contacto@ceaCatavi.edu.bo</li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/59170000000" target="_blank" rel="noreferrer">Escríbenos</a></li>
+          </ul>
+          <h5>Buzón de sugerencias</h5>
+          <form id="formSugerencia">
+            <input id="sugNombre" placeholder="Tu nombre" />
+            <textarea id="sugTexto" rows="3" placeholder="Tu sugerencia"></textarea>
+            <button class="btn ghost" type="submit">Enviar sugerencia</button>
+            <small id="msgSug" style="display:block;color:var(--muted)"></small>
+          </form>
+        </div></div>
+        <div class="card"><div class="pad">
+          <h4>Ubicación (mapa)</h4>
+          <p>Referencia aproximada. Puedes reemplazar el <em>iframe</em> por tu mapa real de Google Maps.</p>
+          <div class="shadow" style="aspect-ratio:16/9;border:1px solid #e2e8f0;border-radius:.6rem;overflow:hidden">
+            <iframe title="Mapa Llallagua" src="https://www.openstreetmap.org/export/embed.html?bbox=-66.595%2C-18.42%2C-66.55%2C-18.38&amp;layer=mapnik" style="width:100%;height:100%;border:0"></iframe>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4 style="margin-top:0">CEA. Catavi</h4>
+        <p>Centro de Educacion Alternativa pública en Llallagua – Potosí. Educación con identidad y calidad, al servicio de la comunidad.</p>
+        <div class="flag" aria-hidden="true" style="margin-top:.6rem"></div>
+      </div>
+      <div>
+        <h5>Enlaces</h5>
+        <ul style="padding-left:1rem;line-height:1.9">
+          <li><a href="#institucion">Quiénes somos</a></li>
+          <li><a href="#oferta">Oferta académica</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Redes</h5>
+        <ul style="padding-left:1rem;line-height:1.9">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,.15);padding-top:.8rem;font-size:.9rem;display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+      <span>© <span id="anio"></span> CEA Catavi – Llallagua, Bolivia</span>
+      <span>Desarrollado con ♥ por el equipo programing.</span>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+<div id="cont3d" style="width:100%; height:600px;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/FontLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/geometries/TextGeometry.js"></script>
+<script>
+  const cont3d = document.getElementById('cont3d');
+
+  // Escena y cámara
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xaaaaaa);
+  const camera = new THREE.PerspectiveCamera(75, cont3d.clientWidth / cont3d.clientHeight, 0.1, 1000);
+  camera.position.set(15, 10, 25);
+
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(cont3d.clientWidth, cont3d.clientHeight);
+  cont3d.appendChild(renderer.domElement);
+
+  // Controles
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+
+  // Luces
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+  dirLight.position.set(10, 20, 10);
+  scene.add(dirLight);
+
+  // Materiales
+  const wallMaterial = new THREE.MeshStandardMaterial({ color: 0xffcc66 });
+  const windowMaterial = new THREE.MeshStandardMaterial({ color: 0x3399ff, transparent: true, opacity: 0.7 });
+  const floorMaterial = new THREE.MeshStandardMaterial({ color: 0x555555 });
+
+  // Piso
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), floorMaterial);
+  floor.rotation.x = -Math.PI / 2;
+  scene.add(floor);
+
+  // Función para crear edificio
+  function crearEdificio(offsetX=0, conTexto=false) {
+    const grupo = new THREE.Group();
+    const pisoAltura = 3;
+
+    // 3 pisos
+    for(let i=0; i<3; i++){
+      const piso = new THREE.Mesh(new THREE.BoxGeometry(6, pisoAltura, 6), wallMaterial);
+      piso.position.y = pisoAltura/2 + i*pisoAltura;
+      grupo.add(piso);
+    }
+
+    // Ventanas en 2do y 3er piso
+    const ventanaAncho = 1;
+    const ventanaAlto = 1.5;
+    const ventanaProf = 0.1;
+    const pisosConVentanas = [1, 2];
+
+    pisosConVentanas.forEach(pisoIndex => {
+      for(let i=0; i<2; i++){
+        const ventana = new THREE.Mesh(
+          new THREE.BoxGeometry(ventanaAncho, ventanaAlto, ventanaProf),
+          windowMaterial
+        );
+        ventana.position.set(-1.5 + i*3, pisoAltura/2 + pisoIndex*pisoAltura, 3.05);
+        grupo.add(ventana);
+      }
+    });
+
+    // Texto SOLO si es el segundo bloque
+    
+    // Texto SOLO si es el segundo bloque
+if(conTexto){
+  const loader = new THREE.FontLoader();
+  loader.load("https://threejs.org/examples/fonts/helvetiker_regular.typeface.json", function(font) {
+    const textGeo = new THREE.TextGeometry("CEA CATAVI", {
+      font: font,
+      size: 0.5,       // un poco más grande
+      height: 0.3,     // relieve (profundidad)
+      bevelEnabled: true, // bordeado para más realismo
+      bevelThickness: 0.05,
+      bevelSize: 0.05,
+      curveSegments: 12,
+    });
+
+    const textMaterial = new THREE.MeshStandardMaterial({ 
+      color: 0xffffff, 
+      metalness: 0.3, 
+      roughness: 0.4 
+    });
+    const textMesh = new THREE.Mesh(textGeo, textMaterial);
+
+    // Posición: un poco más adelante (z = 3.3) para que sobresalga
+    textMesh.position.set(-2.15, 5.8, 3.3);
+
+    grupo.add(textMesh);
+  });
+}
+
+
+    grupo.position.x = offsetX;
+    return grupo;
+  }
+
+  // Crear dos edificios: solo el 2do con texto
+  const edificio1 = crearEdificio(-2, false);
+  const edificio2 = crearEdificio(10, true);
+  scene.add(edificio1);
+  scene.add(edificio2);
+
+  // Animación
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Resize
+  window.addEventListener('resize', () => {
+    renderer.setSize(cont3d.clientWidth, cont3d.clientHeight);
+    camera.aspect = cont3d.clientWidth / cont3d.clientHeight;
+    camera.updateProjectionMatrix();
+  });
+
+  
+  // Material café
+  const cafeMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
+
+  // Función para crear bloque central tipo espejo
+  function crearBloqueCentral() {
+    const grupo = new THREE.Group();
+
+    const ancho = 6;
+    const alto = 6; // hasta ventanas de arriba (2 pisos)
+    const prof = 1;
+
+    const bloque = new THREE.Mesh(new THREE.BoxGeometry(ancho, alto, prof), cafeMaterial);
+    bloque.position.y = alto/2; // levantar para que quede desde el piso
+    bloque.position.x = 4; // entre los dos edificios
+    bloque.position.z = 3.05;
+    grupo.add(bloque);
+
+    // Crear cuadritos simulando espejos
+    const espejoMaterial = new THREE.MeshStandardMaterial({
+      color: 0x999999,
+      metalness: 0.8,
+      roughness: 0.2
+    });
+
+    const cols = 3;
+    const rows = 3;
+    const separacionX = ancho / cols;
+    const separacionY = alto / rows;
+    const cuadroTam = 1;
+
+    for (let i=0; i<cols; i++){
+      for (let j=0; j<rows; j++){
+        const espejo = new THREE.Mesh(
+          new THREE.PlaneGeometry(cuadroTam, cuadroTam),
+          espejoMaterial
+        );
+        espejo.position.set(
+          4 - ancho/2 + separacionX/2 + i*separacionX,
+          separacionY/2 + j*separacionY,
+          3.55 // un poco adelante para que no se meta en la pared
+        );
+        grupo.add(espejo);
+      }
+    }
+
+    // Triángulo tipo techo (^)
+    const shape = new THREE.Shape();
+    shape.moveTo(-ancho/2, 0);
+    shape.lineTo(ancho/2, 0);
+    shape.lineTo(0, 2);
+    shape.lineTo(-ancho/2, 0);
+
+    const extrudeSettings = { depth: 1, bevelEnabled: false };
+    const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+    const techo = new THREE.Mesh(geometry, cafeMaterial);
+    techo.position.set(4, alto, 3);
+    grupo.add(techo);
+
+    return grupo;
+  }
+
+  // Crear bloque central
+  const bloqueCentral = crearBloqueCentral();
+  scene.add(bloqueCentral);
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+    // Toggle menú móvil
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Año dinámico en el footer
+    document.getElementById('anio').textContent = new Date().getFullYear();
+
+    // Guardar registros de admisión
+    const form = document.getElementById('formAdmision');
+    const tabla = document.getElementById('tabla');
+    const tablaRegistros = document.getElementById('tablaRegistros');
+    const verRegistros = document.getElementById('verRegistros');
+    const msgForm = document.getElementById('msgForm');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = {
+        nombres: form.nombres.value,
+        nivel: form.nivel.value,
+        telefono: form.telefono.value,
+        correo: form.correo.value,
+        mensaje: form.mensaje.value
+      };
+      let registros = JSON.parse(localStorage.getItem('admision')) || [];
+      registros.push(data);
+      localStorage.setItem('admision', JSON.stringify(registros));
+      msgForm.textContent = "✅ Registro guardado en este navegador.";
+      form.reset();
+    });
+
+    verRegistros.addEventListener('click', () => {
+      let registros = JSON.parse(localStorage.getItem('admision')) || [];
+      if (registros.length === 0) {
+        tabla.innerHTML = "<tr><td>No hay registros guardados.</td></tr>";
+      } else {
+        let html = "<thead><tr><th>Nombre</th><th>Nivel</th><th>Teléfono</th><th>Correo</th><th>Mensaje</th></tr></thead><tbody>";
+        registros.forEach(r => {
+          html += `<tr>
+            <td>${r.nombres}</td>
+            <td>${r.nivel}</td>
+            <td>${r.telefono}</td>
+            <td>${r.correo}</td>
+            <td>${r.mensaje}</td>
+          </tr>`;
+        });
+        html += "</tbody>";
+        tabla.innerHTML = html;
+      }
+      tablaRegistros.style.display = "block";
+    });
+
+    // Buzón de sugerencias
+    const formSug = document.getElementById('formSugerencia');
+    const msgSug = document.getElementById('msgSug');
+
+    formSug.addEventListener('submit', e => {
+      e.preventDefault();
+      const sugerencia = {
+        nombre: document.getElementById('sugNombre').value,
+        mensaje: document.getElementById('sugTexto').value
+      };
+      let sugerencias = JSON.parse(localStorage.getItem('sugerencias')) || [];
+      sugerencias.push(sugerencia);
+      localStorage.setItem('sugerencias', JSON.stringify(sugerencias));
+      msgSug.textContent = "✅ ¡Gracias por tu sugerencia!";
+      formSug.reset();
+    });
+
+    // Accesibilidad: cerrar menú al navegar
+    document.querySelectorAll('#menu a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        if(window.innerWidth <= 640){ menu.classList.remove('open'); }
+      });
+    });
+
+    document.querySelectorAll('.leerMas').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const texto = link.getAttribute('data-texto');
+    modalTexto.textContent = texto;
+    modal.style.display = 'flex';
+  });
+});
+
+cerrarModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+modal.addEventListener('click', e => {
+  if(e.target === modal) modal.style.display = 'none';
+});
+
+
+
+  </script>
+</body>
+</html>
